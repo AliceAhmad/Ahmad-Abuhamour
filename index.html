@@ -1015,7 +1015,66 @@
   <a href="#" style="font-size: 13px; text-decoration: none; color: #003366; font-weight: bold;">
     <span style="font-size: 20px;">🔝</span> العودة إلى الأعلى
   </a> </div>
+<!-- صندوق التعليقات -->
+<div id="HCB_comment_box">جارٍ تحميل التعليقات...</div>
 
+<!-- ستايل مخصص -->
+<style>
+  #HCB_comment_box {
+    direction: rtl; 
+    text-align: right;
+    font-family: "Cairo", "Tajawal", sans-serif;
+    margin: 30px auto;
+    max-width: 700px;
+    background: #fff;
+    border: 2px solid #d4af37; /* إطار ذهبي */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  }
+  #HCB_comment_box h3, 
+  #HCB_comment_box h4, 
+  #HCB_comment_box label {
+    color: #333;
+    font-weight: bold;
+  }
+  #HCB_comment_box textarea, 
+  #HCB_comment_box input[type="text"] {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+  }
+  #HCB_comment_box input[type="submit"] {
+    background: #d4af37;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  #HCB_comment_box input[type="submit"]:hover {
+    background: #b9972e;
+  }
+</style>
+
+<!-- سكربت HTML Comment Box -->
+<script type="text/javascript" id="hcb">
+    if(!window.hcb_user){hcb_user={};} 
+    (function(){
+        var s=document.createElement("script"),
+        l=(hcb_user.PAGE || ""+window.location),
+        h="https://www.htmlcommentbox.com";
+        s.setAttribute("type","text/javascript");
+        s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10");
+        if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);
+    })();
+</script>
 
 </body>
 </html>
