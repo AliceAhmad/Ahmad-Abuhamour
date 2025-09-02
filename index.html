@@ -216,7 +216,40 @@
     cursor: pointer;  
   }
 
- 
+ /* زر العودة للأعلى */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: gold;
+  color: red;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 45px;
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  z-index: 9999;
+  cursor: pointer;
+
+  /* جديد */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+}
+
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#back-to-top:hover {
+  background-color: #d4af37;
+  transform: scale(1.1);
+}
     
     
   </style>
@@ -800,6 +833,20 @@ function copyLink() {
     }
   }
 </script>
-  
+  <a href="#top" id="back-to-top" title="العودة إلى الأعلى">⬆️</a>
+
+<script>
+  window.addEventListener("scroll", function() {
+    const btn = document.getElementById("back-to-top");
+    const summary = document.getElementById("summary");
+    const offset = summary.offsetTop;
+
+    if (window.scrollY >= offset) {
+      btn.classList.add("show");
+    } else {
+      btn.classList.remove("show");
+    }
+  });
+                          </script>
 </body>
 </html>
