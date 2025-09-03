@@ -761,6 +761,12 @@ function copyLink() {
         commentBtn.innerText = "إرسال التعليق";
       }
     }
+
+    // زر إضافة صورة
+    const addImgBtn = document.querySelector("#HCB_comment_box input[type='button']");
+    if (addImgBtn && addImgBtn.value === "Add Image") {
+      addImgBtn.value = "إضافة صورة";
+    }
   });
 </script>
 
