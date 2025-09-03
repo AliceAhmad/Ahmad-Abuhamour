@@ -733,7 +733,49 @@ function copyLink() {
  <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%2489y1QfVEYnHAw3d77Zzwc%2F"+"&opts=16798&num=10&ts=1756709238735");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
 <!-- end www.htmlcommentbox.com -->
 
+<script>
+  window.addEventListener("load", function() {
+    // العنوان
+    const title = document.querySelector("#HCB_comment_box h3");
+    if (title && title.innerText.trim() === "Comments") {
+      title.innerText = "💬 التعليقات";
+    }
 
+    // حقل الاسم
+    const nameInput = document.querySelector("#HCB_comment_box input[name='name']");
+    if (nameInput) {
+      nameInput.setAttribute("placeholder", "الاسم");
+    }
+
+    // حقل التعليق
+    const commentBox = document.querySelector("#HCB_comment_box textarea");
+    if (commentBox) {
+      commentBox.setAttribute("placeholder", "أدخل تعليقك هنا");
+    }
+
+    // زر التعليق (نجعل تصميمه مثل زر Add Image)
+    const commentBtn = document.querySelector("#HCB_comment_box input[type='submit'], #HCB_comment_box button");
+    if (commentBtn) {
+      if (commentBtn.tagName === "INPUT") {
+        commentBtn.value = "إرسال التعليق";
+      } else {
+        commentBtn.innerText = "إرسال التعليق";
+      }
+
+      // تنسيق يشبه زر Add Image
+      commentBtn.style.backgroundColor = "#f8f9fa";  // نفس خلفية Add Image
+      commentBtn.style.color = "#333";               // لون الخط
+      commentBtn.style.border = "1px solid #ccc";    // حدود فاتحة
+      commentBtn.style.padding = "6px 12px";         // حجم الزر
+      commentBtn.style.borderRadius = "4px";         // زوايا دائرية
+      commentBtn.style.cursor = "pointer";
+      commentBtn.style.fontSize = "14px";
+    }
+  });
+</script>
+
+
+  
   
 <!-- النافذة المنبثقة -->
 <div id="imageModal" onclick="closeModal(event)">
