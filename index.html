@@ -732,6 +732,7 @@ function copyLink() {
  <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
  <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%2489y1QfVEYnHAw3d77Zzwc%2F"+"&opts=16798&num=10&ts=1756709238735");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
 <!-- end www.htmlcommentbox.com -->
+
 <script>
   window.addEventListener("load", function() {
     // العنوان
@@ -752,35 +753,18 @@ function copyLink() {
       commentBox.setAttribute("placeholder", "أدخل تعليقك هنا");
     }
 
-    // كل الأزرار داخل صندوق التعليقات
-    const allButtons = document.querySelectorAll("#HCB_comment_box input, #HCB_comment_box button");
-    allButtons.forEach(btn => {
-      // ترجمة زر Add Image
-      if (btn.value && btn.value.trim() === "Add Image") {
-        btn.value = "إضافة صورة";
+    // زر التعليق
+    const commentBtn = document.querySelector("#HCB_comment_box input[type='submit'], #HCB_comment_box button");
+    if (commentBtn) {
+      if (commentBtn.tagName === "INPUT") {
+        commentBtn.value = "إرسال التعليق";
+      } else {
+        commentBtn.innerText = "إرسال التعليق";
       }
-      if (btn.innerText && btn.innerText.trim() === "Add Image") {
-        btn.innerText = "إضافة صورة";
-      }
-
-      // ترجمة زر Comment
-      if (btn.value && btn.value.trim() === "Comment") {
-        btn.value = "إرسال التعليق";
-      }
-      if (btn.innerText && btn.innerText.trim() === "Comment") {
-        btn.innerText = "إرسال التعليق";
-      }
-
-      // تنسيق مشترك للأزرار
-      btn.style.backgroundColor = "#ffffff";   // خلفية بيضاء
-      btn.style.color = "#000000";             // خط أسود
-      btn.style.border = "1px solid #555";     // حدود رمادية واضحة
-      btn.style.borderRadius = "6px";          // زوايا ناعمة
-      btn.style.padding = "8px 15px";          // مسافة داخلية
-      btn.style.cursor = "pointer";            // شكل اليد عند المرور
-    });
+    }
   });
 </script>
+  
 <!-- النافذة المنبثقة -->
 <div id="imageModal" onclick="closeModal(event)">
   <span onclick="closeModal()">&times;</span>
