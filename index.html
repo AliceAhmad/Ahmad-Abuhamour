@@ -747,7 +747,14 @@ function copyLink() {
  <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
  <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%2489y1QfVEYnHAw3d77Zzwc%2F"+"&opts=16798&num=10&ts=1756709238735");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
 <!-- end www.htmlcommentbox.com -->
-
+<script>
+  window.addEventListener("load", function() {
+    const title = document.querySelector("#HCB_comment_box h3");
+    if (title && title.innerText.trim() === "Comments") {
+      title.innerText = "💬 التعليقات";
+    }
+  });
+</script>
 
 <!-- النافذة المنبثقة -->
 <div id="imageModal" onclick="closeModal(event)">
