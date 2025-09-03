@@ -103,13 +103,12 @@
     <img src="un13.webp" alt="صورة أحمد محمد أبو حمور" onclick="openLightbox(2)">
     <img src="un2.webp" alt="صورة أحمد محمد أبو حمور" onclick="openLightbox(3)">
     <img src="un4.webp" alt="صورة أحمد محمد أبو حمور" onclick="openLightbox(4)">
-  <img src="un19.webp" alt="صورة أحمد محمد أبو حمور" onclick="openLightbox(5)">
+    <img src="un19.webp" alt="صورة أحمد محمد أبو حمور" onclick="openLightbox(5)">
     <img src="un20.webp" alt="صورة أحمد محمد أبو حمور" onclick="openLightbox(6)">
     <img src="un21.webp" alt="صورة أحمد محمد أبو حمور" onclick="openLightbox(7)">
     <img src="un23.webp" alt="صورة أحمد محمد أبو حمور" onclick="openLightbox(8)">
     <img src="un18.webp" alt="صورة أحمد محمد أبو حمور" onclick="openLightbox(9)">
     <img src="un5.webp" alt="صورة أحمد محمد أبو حمور" onclick="openLightbox(10)">
-
   </div>
 
   <!-- نافذة Lightbox -->
@@ -124,17 +123,8 @@
 
   <script>
     const images = [
- "un15.webp",
-"un14.webp",
-"un13.webp",
-"un2.webp",
-"un4.webp",
-"un19.webp",
-"un20.webp",
-"un21.webp",
-"un23.webp",
-"un18.webp",      
-"un5.webp"
+      "un15.webp","un14.webp","un13.webp","un2.webp","un4.webp",
+      "un19.webp","un20.webp","un21.webp","un23.webp","un18.webp","un5.webp"
     ];
     let currentIndex = 0;
 
@@ -161,6 +151,13 @@
         if (e.key === "ArrowRight") changeImage(1);
         if (e.key === "ArrowLeft") changeImage(-1);
         if (e.key === "Escape") closeLightbox();
+      }
+    });
+
+    // إغلاق عند الضغط خارج الصورة
+    document.getElementById("lightbox").addEventListener("click", function(e) {
+      if (e.target === this) {
+        closeLightbox();
       }
     });
   </script>
