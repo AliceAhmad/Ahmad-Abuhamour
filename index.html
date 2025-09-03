@@ -752,7 +752,7 @@ function copyLink() {
       commentBox.setAttribute("placeholder", "أدخل تعليقك هنا");
     }
 
-    // زر التعليق
+    // زر التعليق (إرسال التعليق)
     const commentBtn = document.querySelector("#HCB_comment_box input[type='submit'], #HCB_comment_box button");
     if (commentBtn) {
       if (commentBtn.tagName === "INPUT") {
@@ -760,12 +760,18 @@ function copyLink() {
       } else {
         commentBtn.innerText = "إرسال التعليق";
       }
+      // تعديل الشكل
+      commentBtn.style.backgroundColor = "#ffffff";  // نفس خلفية زر Add Image
+      commentBtn.style.color = "#000000";            // خط أسود
+      commentBtn.style.border = "1px solid #ccc";    // نفس الحدود
     }
 
     // زر إضافة صورة
     const addImgBtn = document.querySelector("#HCB_comment_box input[type='button']");
-    if (addImgBtn && addImgBtn.value === "Add Image") {
-      addImgBtn.value = "إضافة صورة";
+    if (addImgBtn) {
+      if (addImgBtn.value === "Add Image") {
+        addImgBtn.value = "إضافة صورة";
+      }
     }
   });
 </script>
