@@ -734,9 +734,32 @@ function copyLink() {
 <!-- end www.htmlcommentbox.com -->
 <script>
   window.addEventListener("load", function() {
+    // العنوان
     const title = document.querySelector("#HCB_comment_box h3");
     if (title && title.innerText.trim() === "Comments") {
       title.innerText = "💬 التعليقات";
+    }
+
+    // حقل الاسم
+    const nameInput = document.querySelector("#HCB_comment_box input[name='name']");
+    if (nameInput) {
+      nameInput.setAttribute("placeholder", "الاسم");
+    }
+
+    // حقل التعليق
+    const commentBox = document.querySelector("#HCB_comment_box textarea");
+    if (commentBox) {
+      commentBox.setAttribute("placeholder", "أدخل تعليقك هنا");
+    }
+
+    // زر التعليق
+    const commentBtn = document.querySelector("#HCB_comment_box input[type='submit'], #HCB_comment_box button");
+    if (commentBtn) {
+      if (commentBtn.tagName === "INPUT") {
+        commentBtn.value = "إرسال التعليق";
+      } else {
+        commentBtn.innerText = "إرسال التعليق";
+      }
     }
   });
 </script>
