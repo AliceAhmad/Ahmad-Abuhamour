@@ -753,36 +753,26 @@ function copyLink() {
       commentBox.setAttribute("placeholder", "أدخل تعليقك هنا");
     }
 
-    // زر إضافة صورة
-    const addImageBtn = document.querySelector("#HCB_comment_box input[type='button']");
-    // زر إرسال التعليق
+    // زر التعليق
     const commentBtn = document.querySelector("#HCB_comment_box input[type='submit'], #HCB_comment_box button");
+    const imageBtn = document.querySelector("#HCB_comment_box input[type='button'], #HCB_comment_box .hcb-add-image");
 
     if (commentBtn) {
+      // الترجمة
       if (commentBtn.tagName === "INPUT") {
         commentBtn.value = "إرسال التعليق";
       } else {
         commentBtn.innerText = "إرسال التعليق";
       }
 
-      // نخلي الشكل موحّد
-      const btnWidth = addImageBtn ? addImageBtn.offsetWidth : 120;
-      const btnHeight = addImageBtn ? addImageBtn.offsetHeight : 40;
-
-      commentBtn.style.backgroundColor = "#fff";
-      commentBtn.style.color = "#333";
-      commentBtn.style.border = "1px solid #ccc";
-      commentBtn.style.borderRadius = "8px";
-      commentBtn.style.cursor = "pointer";
-      commentBtn.style.fontSize = "14px";
-      commentBtn.style.width = btnWidth + "px";   // نفس العرض
-      commentBtn.style.height = btnHeight + "px"; // نفس الطول
-      commentBtn.style.lineHeight = btnHeight + "px";
-      commentBtn.style.textAlign = "center";
+      // نسخ نفس الكلاسات من زر الصورة (حتى الشكل يكون مطابق)
+      if (imageBtn) {
+        commentBtn.className = imageBtn.className;
+        commentBtn.style.cssText = imageBtn.style.cssText;
+      }
     }
   });
 </script>
-
 
   
   
