@@ -752,30 +752,35 @@ function copyLink() {
       commentBox.setAttribute("placeholder", "أدخل تعليقك هنا");
     }
 
-    // زر التعليق (إرسال التعليق)
-    const commentBtn = document.querySelector("#HCB_comment_box input[type='submit'], #HCB_comment_box button");
-    if (commentBtn) {
-      if (commentBtn.tagName === "INPUT") {
-        commentBtn.value = "إرسال التعليق";
-      } else {
-        commentBtn.innerText = "إرسال التعليق";
+    // كل الأزرار داخل صندوق التعليقات
+    const allButtons = document.querySelectorAll("#HCB_comment_box input, #HCB_comment_box button");
+    allButtons.forEach(btn => {
+      // ترجمة زر Add Image
+      if (btn.value && btn.value.trim() === "Add Image") {
+        btn.value = "إضافة صورة";
       }
-      // تعديل الشكل
-      commentBtn.style.backgroundColor = "#ffffff";  // نفس خلفية زر Add Image
-      commentBtn.style.color = "#000000";            // خط أسود
-      commentBtn.style.border = "1px solid #ccc";    // نفس الحدود
-    }
+      if (btn.innerText && btn.innerText.trim() === "Add Image") {
+        btn.innerText = "إضافة صورة";
+      }
 
-    // زر إضافة صورة
-    const addImgBtn = document.querySelector("#HCB_comment_box input[type='button']");
-    if (addImgBtn) {
-      if (addImgBtn.value === "Add Image") {
-        addImgBtn.value = "إضافة صورة";
+      // ترجمة زر Comment
+      if (btn.value && btn.value.trim() === "Comment") {
+        btn.value = "إرسال التعليق";
       }
-    }
+      if (btn.innerText && btn.innerText.trim() === "Comment") {
+        btn.innerText = "إرسال التعليق";
+      }
+
+      // تنسيق مشترك للأزرار
+      btn.style.backgroundColor = "#ffffff";   // خلفية بيضاء
+      btn.style.color = "#000000";             // خط أسود
+      btn.style.border = "1px solid #555";     // حدود رمادية واضحة
+      btn.style.borderRadius = "6px";          // زوايا ناعمة
+      btn.style.padding = "8px 15px";          // مسافة داخلية
+      btn.style.cursor = "pointer";            // شكل اليد عند المرور
+    });
   });
 </script>
-
 <!-- النافذة المنبثقة -->
 <div id="imageModal" onclick="closeModal(event)">
   <span onclick="closeModal()">&times;</span>
