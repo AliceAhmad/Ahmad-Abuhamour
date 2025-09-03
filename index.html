@@ -755,21 +755,20 @@ function copyLink() {
 
     // زر التعليق
     const commentBtn = document.querySelector("#HCB_comment_box input[type='submit'], #HCB_comment_box button");
-    const imageBtn = document.querySelector("#HCB_comment_box input[type='button'], #HCB_comment_box .hcb-add-image");
-
     if (commentBtn) {
-      // الترجمة
       if (commentBtn.tagName === "INPUT") {
         commentBtn.value = "إرسال التعليق";
       } else {
         commentBtn.innerText = "إرسال التعليق";
       }
 
-      // نسخ نفس الكلاسات من زر الصورة (حتى الشكل يكون مطابق)
-      if (imageBtn) {
-        commentBtn.className = imageBtn.className;
-        commentBtn.style.cssText = imageBtn.style.cssText;
-      }
+      // تعديل الشكل ليكون مثل زر Add Image
+      commentBtn.style.backgroundColor = "#fff";
+      commentBtn.style.color = "#000";
+      commentBtn.style.border = "1px solid #ccc";
+      commentBtn.style.padding = "6px 12px";
+      commentBtn.style.borderRadius = "4px";
+      commentBtn.style.cursor = "pointer";
     }
   });
 </script>
