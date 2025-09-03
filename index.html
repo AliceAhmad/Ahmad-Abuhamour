@@ -753,8 +753,11 @@ function copyLink() {
       commentBox.setAttribute("placeholder", "أدخل تعليقك هنا");
     }
 
-    // زر التعليق (نجعل تصميمه مثل زر Add Image)
+    // زر إضافة صورة
+    const addImageBtn = document.querySelector("#HCB_comment_box input[type='button']");
+    // زر إرسال التعليق
     const commentBtn = document.querySelector("#HCB_comment_box input[type='submit'], #HCB_comment_box button");
+
     if (commentBtn) {
       if (commentBtn.tagName === "INPUT") {
         commentBtn.value = "إرسال التعليق";
@@ -762,14 +765,20 @@ function copyLink() {
         commentBtn.innerText = "إرسال التعليق";
       }
 
-      // تنسيق يشبه زر Add Image
-      commentBtn.style.backgroundColor = "#f8f9fa";  // نفس خلفية Add Image
-      commentBtn.style.color = "#333";               // لون الخط
-      commentBtn.style.border = "1px solid #ccc";    // حدود فاتحة
-      commentBtn.style.padding = "6px 12px";         // حجم الزر
-      commentBtn.style.borderRadius = "4px";         // زوايا دائرية
+      // نخلي الشكل موحّد
+      const btnWidth = addImageBtn ? addImageBtn.offsetWidth : 120;
+      const btnHeight = addImageBtn ? addImageBtn.offsetHeight : 40;
+
+      commentBtn.style.backgroundColor = "#fff";
+      commentBtn.style.color = "#333";
+      commentBtn.style.border = "1px solid #ccc";
+      commentBtn.style.borderRadius = "4px";
       commentBtn.style.cursor = "pointer";
       commentBtn.style.fontSize = "14px";
+      commentBtn.style.width = btnWidth + "px";   // نفس العرض
+      commentBtn.style.height = btnHeight + "px"; // نفس الطول
+      commentBtn.style.lineHeight = btnHeight + "px";
+      commentBtn.style.textAlign = "center";
     }
   });
 </script>
