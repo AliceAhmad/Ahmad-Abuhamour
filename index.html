@@ -734,32 +734,39 @@ function copyLink() {
 <!-- end www.htmlcommentbox.com -->
 <script>
   window.addEventListener("load", function() {
-    // العنوان
-    const title = document.querySelector("#HCB_comment_box h3");
-    if (title && title.innerText.trim() === "Comments") {
-      title.innerText = "💬 التعليقات";
-    }
-
-    // حقل الاسم
-    const nameInput = document.querySelector("#HCB_comment_box input[name='name']");
-    if (nameInput) {
-      nameInput.setAttribute("placeholder", "الاسم");
-    }
-
-    // حقل التعليق
-    const commentBox = document.querySelector("#HCB_comment_box textarea");
-    if (commentBox) {
-      commentBox.setAttribute("placeholder", "أدخل تعليقك هنا");
-    }
-
-    // زر التعليق
-    const commentBtn = document.querySelector("#HCB_comment_box input[type='submit'], #HCB_comment_box button");
+    // زر إرسال التعليق
+    const commentBtn = document.querySelector("#HCB_comment_box input[type='submit']");
     if (commentBtn) {
-      if (commentBtn.tagName === "INPUT") {
-        commentBtn.value = "إرسال التعليق";
-      } else {
-        commentBtn.innerText = "إرسال التعليق";
-      }
+      commentBtn.value = "📝 إرسال التعليق";
+    }
+
+    // زر إضافة صورة
+    const addImgBtn = document.querySelector("#HCB_comment_box input[value='Add Image']");
+    if (addImgBtn) {
+      addImgBtn.value = "➕ أضف صورة";
+    }
+
+    // الحقول
+    const nameField = document.querySelector("#HCB_comment_box input[name='hcb_name']");
+    if (nameField) {
+      nameField.placeholder = "✍️ الاسم";
+    }
+    const textArea = document.querySelector("#HCB_comment_box textarea");
+    if (textArea) {
+      textArea.placeholder = "💬 أدخل تعليقك هنا";
+    }
+
+    // روابط تحت التعليق (Like, Reply, Flag)
+    document.querySelectorAll("#HCB_comment_box .hcb-link").forEach(link => {
+      if (link.innerText.trim() === "Like") link.innerText = "👍 إعجاب";
+      if (link.innerText.trim() === "Reply") link.innerText = "↩️ رد";
+      if (link.innerText.trim() === "Flag") link.innerText = "🚩 إبلاغ";
+    });
+
+    // عبارة "No one has commented yet"
+    const noComments = document.querySelector("#HCB_comment_box .hcb-comment-tb");
+    if (noComments && noComments.innerText.includes("No one has commented yet")) {
+      noComments.innerText = "لم يكتب أحد تعليقًا بعد. كن أول من يعلق!";
     }
   });
 </script>
